@@ -1,2 +1,1 @@
-# Deep_Learning_Model
- 
+# Use LetNet/ AlexNet to train ! 
