@@ -1,6 +1,6 @@
 #  Train to recognize images! 
 
-## LetNet/Alex Net
+## LetNet/AlexNet
     a.  We have 64 images in each batch of data used for training.
     Here is a sample batch of the data we will use.
 
