@@ -1,9 +1,12 @@
-import torch
+import os
+print(os.path.abspath("/Users/sitingtang/Desktop/coop-fall/LeNet_AlexNet/pytorch"))
 
-# 检查 PyTorch 是否安装成功
-print("PyTorch version:", torch.__version__)
+# import torch
 
-# 创建一个随机的 Tensor
-x = torch.rand(5, 3)
-print("A random tensor:")
-print(x)
+# # 检查 PyTorch 是否安装成功
+# print("PyTorch version:", torch.__version__)
+
+# # 创建一个随机的 Tensor
+# x = torch.rand(5, 3)
+# print("A random tensor:")
+# print(x)
