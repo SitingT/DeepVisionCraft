@@ -57,8 +57,27 @@ if __name__ == "__main__":
     # 加载模型
     model = LeNet()
     model.load_state_dict(torch.load(
-        '/Users/sitingtang/Desktop/coop-fall/LeNet_AlexNet/pytorch/model_weights.pth'))
+        '/Users/sitingtang/Desktop/coop-fall/LeNet_AlexNet/LeNet/model_weights.pth'))
     # 加载测试数据
     test_dataloader = test_data_process()
     # 加载模型测试的函数
     test_model_process(model, test_dataloader)
+
+    device = "cuda" if torch.cuda.is_available() else 'cpu'
+    model = model.to(device)
+
+    classes = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress',
+               'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+    with torch.no_grad():
+        for b_x, b_y in test_dataloader:
+            b_x = b_x.to(device)
+            b_y = b_y.to(device)
+
+            # 设置验证模式
+            model.eval()
+            output = model(b_x)  # 十个神经推理结果
+            pre_lab = torch.argmax(output, dim=1)
+            result = pre_lab.item()
+            label = b_y.item()
+            print("Expected", classes[result],
+                  "-------", "real: ", classes[label])
